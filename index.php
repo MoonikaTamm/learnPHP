@@ -1,36 +1,4 @@
 <?php
-// short comments are this way
-/*
-    multi-line comment
-*/
-
-// välja printimiseks print(); or
-echo 'Hello world';
-
-$var = 'Moonika';
-$var = 4; //int
-$var = 4.1; //float
-$var = true; //boolean
-$var = NULL; //väärtuse puudumine
-$var = new StdClass(); //object
-$var = ['hello', 1, 1.5, true]; //array
-
-foreach($var as $key => $value) {
-    var_dump($key);
-    var_dump($value);
-}
-
-$var = [
-    'name' => 'Moonika',
-    'age' => '26',
-    'hasCat' => 'true',
-    2,
-    true
-];
-
-var_dump($var);
-var_dump($var['name']);
-var_dump($var[1]);
 
 function hello($name) {
     echo 'Hello ' . $name;
@@ -41,3 +9,41 @@ hello('Moonika');
 $name = 'Moon';
 echo ".\n.\n Don't be an a** $name!";
 // '' ei tööta muutjutate printimine ja \n
+
+class Box {
+    public $width;
+    public $length;
+    public $height;
+
+    public function volume() {
+        return $this->width * $this->length * $this->height;
+    }
+}
+
+$var1 = 1;
+$var2 = $var1;
+$var2 = 2;
+var_dump($var1);
+
+
+$box1 = new Box();
+$box1->width = 10;
+$box1->length = 20;
+$box1->height = 30;
+var_dump($box1);
+var_dump($box1->volume());
+
+$box2 = new Box();
+$box2->width = 40;
+$box2->length = 40;
+$box2->height = 60;
+var_dump($box2);
+var_dump($box2->volume());
+
+
+$box1= 1;
+$box2 = $box1; // box2 ja box1 viitavad samale kohale mälus -ehk üks objekt.
+//&? infront of object
+// clone $box1 - uus object, samade muutujatega
+$box2 = 2;
+var_dump($var1);
